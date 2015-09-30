@@ -8,29 +8,24 @@ function($scope, posts){
 	
 	$scope.addPost = function(){
 		if(!$scope.title || $scope.title === '') { return; }
-		else{
-	  $scope.posts.push({
-	  	title: $scope.title,
-	  	link: $scope.link,
-	  	 upvotes: 0,
-	  	 comments: [
-	  	 {author: 'Joe', body: 'Cool post!', upvotes:0},
-	  	 {author: 'Bob', body: 'another cool post', upvotes: 0}
-	  	 ]
+	  posts.create({
+			title: $scope.title,
+			link: $scope.link,
 	  	});
 	  $scope.title = '';
 	  $scope.link = '';
-	  }
 	};
 
 	$scope.incrementUpvotes = function(post) {
-	  post.upvotes += 1;
+	  posts.upvote(post);
 	};
 
 	$scope.decrementUpvotes = function(post) {
 		if(post.upvotes > 0){
-	  post.upvotes -= 1;
+	  posts.downvote(post);
 	}
 	};
 
 }]);
+
+

@@ -7,11 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body ng-app="FreezerMagnet">
+  <div class="container">
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
+        <div ng-include="'nav/_nav.html'"></div>
       <ui-view></ui-view>
     </div>
   </div>
+  <div>
 
   
 
